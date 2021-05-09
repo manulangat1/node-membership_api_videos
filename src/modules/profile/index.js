@@ -1,11 +1,11 @@
 import express from 'express';
 
 import ProfileController from './profileController';
-
+import AuthMiddleware from '../../middlewares/AuthMiddleware'
 const Router = express.Router();
 
 Router.get(
-    '/profile',
+    '/profile', AuthMiddleware.isAuth,
     ProfileController.fetchProfile
 );
 
