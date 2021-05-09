@@ -24,6 +24,7 @@
 		"@babel/cli": "^7.8.4",
 		"@babel/polyfill": "^7.8.7",
 		"@sendgrid/mail": "^7.1.1",
+		"async-redis": "^1.1.7",
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
@@ -46,7 +47,12 @@
 		"@babel/register": "^7.9.0",
 		"@babel/runtime": "^7.9.6",
 		"colors": "^1.4.0",
+		"eslint": "^7.26.0",
 		"nodemon": "^2.0.3",
+		"prettier": "^2.2.1",
 		"stripe": "^8.148.0"
+	},
+	"prettier": {
+		"tabWidth": 4
 	}
 }
