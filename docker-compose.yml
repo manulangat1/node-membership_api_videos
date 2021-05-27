@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+    node-api:
+        restart: always 
+        build:
+            context: ./src
+            dockerfile: Dockerfile.dev
+        container_name: node_api_nginx
+        volumes:
+            - /app/node_modules
+            - ./src:/app # ---> map local to server in remote
+        ports:
+            - 5000:5000
+        depends_on:
+            - postgresql
+        environment:
+            - USERNAME: ${USERNAME}
+            - PASSWORD: ${PASSWORD}
+            - DATABASE: ${DATABASE}
+            - SECRET_KEY: ${SECRET_KEY}
+            - PUBLISHABLE_KEY: ${PUBLISHABLE_KEY}
+        networks:
+            - node_api_
+    postgres:
+        restart: always
+        image: postgres
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+        ports: 
+            - '5432:5432'
+        volumes:
+            - node-db:/var/lib/postgresql/data
+        networks:
+            - node_api_
+networks:
+    node_api_:
+        driver:
+            bridge
+volumes:
+    node-db:
+        driver:
+            local
