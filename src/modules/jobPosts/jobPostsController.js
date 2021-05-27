@@ -15,6 +15,7 @@ class JobPostsController {
         } catch (error) {
             errorHandler.handleError(error, 500, res);
         }
+        
     }
 }
 
