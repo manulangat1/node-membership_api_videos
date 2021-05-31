@@ -11,11 +11,13 @@ class JobPostsController {
                 message: 'Job posts fetched successfully.',
                 jobPosts: jobPosts,
             });
+
+            
             
         } catch (error) {
             errorHandler.handleError(error, 500, res);
         }
-        
+
     }
 }
 
